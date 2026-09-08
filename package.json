@@ -1,0 +1,12 @@
+{
+  "name": "quietblock",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QuietBlock - Manifest V3 per-site anti-adblock helper (development-only test harness)",
+  "scripts": {
+    "test": "node tests/run.js"
+  },
+  "devDependencies": {
+    "jsdom": "^24.1.3"
+  }
+}

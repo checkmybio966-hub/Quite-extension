@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QuietBlock · Site settings</title>
+  <link rel="stylesheet" href="ui.css">
+  <script src="options.js" defer></script>
+</head>
+<body class="settings-page">
+  <div class="settings-shell">
+    <header class="brand-row settings-header">
+      <div class="brand"><img src="icons/icon48.png" width="38" height="38" alt=""><span>QuietBlock<small>ANTI-ADBLOCK HELPER</small></span></div>
+      <span class="local-badge"><span class="privacy-dot"></span>ON-DEVICE BY DESIGN</span>
+    </header>
+    <main>
+      <div class="page-intro"><div class="eyebrow">SITE SETTINGS / 01</div><h1>Your sites. Your rules.</h1><p>Keep your adblocker on. Give this helper access only where a website is getting in the way.</p></div>
+      <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+      <section class="settings-card" aria-labelledby="sites-heading">
+        <div class="section-heading"><h2 id="sites-heading">Enabled websites <span id="site-count" class="count-badge">0</span></h2><button type="button" class="text-button" id="remove-all" disabled>Remove all</button></div>
+        <div id="empty-state" class="empty-state"><span class="empty-mark" aria-hidden="true">◇</span><h3>No websites enabled yet</h3><p>Visit a website, click the QuietBlock toolbar icon, then choose <strong>Enable &amp; reload</strong>. Access is requested for that hostname only.</p></div>
+        <ul id="site-list" class="site-list" aria-label="Enabled websites"></ul>
+        <p class="settings-note">Settings apply to the exact hostname, on HTTP and HTTPS, across all its paths and ports. Subdomains are separate. After removing a site, reload its open tabs to clear already-running code.</p>
+      </section>
+      <section class="settings-card" id="help" aria-labelledby="how-heading">
+        <div class="section-heading"><h2 id="how-heading">Three steps to a quieter page</h2><span class="version-tag">BEST EFFORT</span></div>
+        <div class="step-grid">
+          <div><span class="step-number">01</span><h3>Keep uBlock enabled</h3><p>QuietBlock is a helper, not an adblocker. It never changes your blocker's rules or settings.</p></div>
+          <div><span class="step-number">02</span><h3>Enable on the problem site</h3><p>Use the toolbar button and approve website access. The page reloads — a green blinking dot shows the site is protected.</p></div>
+          <div><span class="step-number">03</span><h3>Test, then adjust</h3><p>Still seeing a popup? Try the optional popup cleanup, then reload. Long-press any image to save it to your Downloads.</p></div>
+        </div>
+        <details><summary>Setup instructions · Hinglish</summary><p>ZIP ko extract karo. Chrome mein <code>chrome://extensions</code> ya Edge mein <code>edge://extensions</code> kholo. <strong>Developer mode</strong> ON karke <strong>Load unpacked</strong> par click karo aur <code>quietblock</code> folder select karo — jiske andar <code>manifest.json</code> hai.</p><p>Extension ko pin karo, problem wali website kholo, phir QuietBlock → <strong>Enable &amp; reload</strong>. Permission aaye toh us site ke liye allow karo. uBlock ON hi rehne do. Har website par guarantee nahi hai; kaam na kare toh website URL, warning ka text aur exact adblocker naam ke saath site-specific fix maango.</p></details>
+      </section>
+      <section class="settings-card" aria-labelledby="limits-heading">
+        <div class="section-heading"><h2 id="limits-heading">Helpful, not invisible.</h2></div>
+        <div class="limits-grid">
+          <div><h3>What it attempts</h3><ul><li>Non-zero measurements for small, empty elements with known adblock-test names.</li><li>Normal-looking display and visibility values for those same test elements.</li><li>Optional removal of obvious, short adblock modal messages.</li></ul></div>
+          <div><h3>What it cannot promise</h3><ul><li>Bypassing blocked-request, script-load, iframe or server-side checks.</li><li>Hiding the extension or its JavaScript changes from a determined website.</li><li>Auto-recognising the "real" download button vs ad buttons — use uBlock's ad filters; no extension can guarantee 0 fake links.</li><li>Restoring withheld video/content, or bypassing login, subscriptions or paywalls.</li></ul></div>
+        </div>
+        <details><summary>Troubleshooting &amp; technical limits</summary><p>If a page breaks, use <strong>Turn off &amp; reload</strong>. If the popup cannot open, disable QuietBlock in the browser's extensions page and reload the affected tab. Turning a script off does not undo changes inside an already-loaded page until that page reloads.</p><p>Protection starts at <code>document_start</code> in the top-level page only. It is intentionally narrow: normal page elements, large inline-sized ad slots and content-filled elements are left alone. It does not emulate successful ad requests, spoof every DOM API, or guarantee script ordering on every site.</p><p>The experimental cleanup only hides matching modal-like elements; it does not make a detection test pass. It may miss popups, leave backdrops, or incorrectly hide a panel. Likely login, payment and subscription dialogs are deliberately skipped. Browser internal pages, extension stores, built-in PDF viewers, local files and incognito windows are not supported by default.</p><p>Compatibility: Chrome/Chromium-based Edge 120 or newer with unpacked Manifest V3 extensions permitted. Managed/work devices may prohibit Developer mode or unpacked extensions. Keep your existing blocker's filter lists up to date before adding more workarounds.</p></details>
+      </section>
+      <section class="settings-card privacy-block" aria-labelledby="privacy-heading"><h2 id="privacy-heading">Small permissions. Nothing sent away.</h2><p>QuietBlock stores enabled hostnames and their per-site settings in local browser extension storage. It reads the current tab's URL when you open its popup. Approved sites allow it to read and modify that page's DOM; optional cleanup inspects matching modal text locally. <code>contextMenus</code> adds "Save image with QuietBlock" on enabled sites; <code>downloads</code> is used only when you long-press or right-click an image — no background/automatic downloads. No accounts, analytics, remote code, cookies API or browsing-history API. This version makes no network requests of its own. Removing a saved site also revokes its optional website permission.</p></section>
+    </main>
+    <footer class="settings-footer">QUIETBLOCK / v1.0.0 · Independent helper, not affiliated with uBlock.</footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QuietBlock</title>
+  <link rel="stylesheet" href="ui.css">
+  <script src="popup.js" defer></script>
+</head>
+<body class="popup-page">
+  <header class="brand-row">
+    <div class="brand"><img src="icons/icon48.png" width="32" height="32" alt=""><span>QuietBlock<small>ANTI-ADBLOCK HELPER</small></span></div>
+    <span class="version-tag">v1.0</span>
+  </header>
+  <main>
+    <section class="site-card" aria-labelledby="site-host">
+      <div class="eyebrow">THIS WEBSITE</div>
+      <div class="domain-row">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
+        <h1 id="site-host">Loading…</h1>
+      </div>
+      <span class="status-pill" id="site-status"><span class="status-dot"></span><span id="status-copy">CHECKING SITE</span></span>
+      <div class="hero-rule"></div>
+      <h2 id="hero-title">Keep the blocker.<br>Skip the nagging.</h2>
+      <p id="hero-description">A little help with common adblock checks, only on the sites you choose.</p>
+      <button type="button" class="primary-button" id="main-action" disabled>Loading…</button>
+      <p class="reload-disclaimer" id="reload-disclaimer">This action reloads the current tab.</p>
+    </section>
+
+    <section class="feature-row" aria-label="Layout check protection">
+      <div class="feature-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 3 8 3v6c0 4-5 8-8 9-3-1-8-5-8-9V6l8-3Z"/><path d="m8 12 2.7 2.7L16 9.5"/></svg></div>
+      <div class="feature-copy"><h3>Common layout checks</h3><p>Masks small, hidden adblock test elements.</p></div>
+      <span class="small-state" id="guard-state">OFF</span>
+    </section>
+
+    <section class="feature-row cleanup-row" aria-labelledby="dismiss-label">
+      <div class="feature-icon muted" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m9 9 6 6m0-6-6 6"/></svg></div>
+      <div class="feature-copy"><h3 id="dismiss-label">Dismiss adblock popups</h3><p>Experimental · may hide the wrong panel.</p></div>
+      <button type="button" class="switch" id="dismiss-toggle" role="switch" aria-checked="false" aria-labelledby="dismiss-label" disabled><span></span></button>
+    </section>
+
+    <section class="feature-row" aria-labelledby="image-label">
+      <div class="feature-icon muted" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M12 8v7m0 0 3-3m-3 3-3-3"/><circle cx="12" cy="12" r="9"/></svg></div>
+      <div class="feature-copy"><h3 id="image-label">Long-press saves images</h3><p>Hold an image 0.7 sec (or right-click) to download it.</p></div>
+      <button type="button" class="switch" id="image-toggle" role="switch" aria-checked="true" aria-labelledby="image-label" disabled><span></span></button>
+    </section>
+    <div class="notice" id="notice" role="status" aria-live="polite" hidden></div>
+    <button type="button" class="reload-button" id="reload-action" hidden>Reload to apply change ↻</button>
+    <div class="honest-note"><span aria-hidden="true">ⓘ</span><p>Best effort, not invisible. Real ads stay blocked by uBlock; this helper only masks common page checks. Fake link buttons cannot be auto-removed by any extension.</p></div>
+  </main>
+  <footer class="popup-footer">
+    <span><span class="privacy-dot"></span>Local only. No telemetry.</span>
+    <button type="button" class="text-button" id="manage-sites">Site settings <span aria-hidden="true">↗</span></button>
+  </footer>
+</body>
+</html>
